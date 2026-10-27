@@ -1,0 +1,12 @@
+# docker-compose.yml
+services:
+  backend:
+    build: ./backend
+    ports: ["8000:8000"]
+    volumes: ["wind-data:/srv/data"]   # persists the January CSV cache between restarts
+  frontend:
+    build: ./frontend
+    ports: ["3000:80"]
+    depends_on: [backend]
+volumes:
+  wind-data:

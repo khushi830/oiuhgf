@@ -1,0 +1,7 @@
+# backend/requirements.txt
+fastapi==0.115.*
+uvicorn[standard]==0.32.*
+pandas==2.2.*
+requests==2.32.*
+# test-only
+pytest==8.*
