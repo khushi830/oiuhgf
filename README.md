@@ -13,8 +13,8 @@ Data: national-level wind actuals (Elexon BMRS `FUELHH`, filtered to `WIND`) and
 
 | Component | URL |
 |-----------|-----|
-| Frontend (Vercel) | `https://[your-project-name].vercel.app` |
-| Backend API (AWS) | `<ADD AWS URL HERE>` (docs at `/docs`, health at `/api/health`) |
+| Frontend (Vercel) | `https://oiuhgh.vercel.app/` |
+| Backend API | `https://qatar-backend.atttrack.online` (docs at `/docs`, health at `/api/health`) |
 
 ## Use of AI tools
 
@@ -107,10 +107,10 @@ cd backend && DATA_DIR=./data pytest           # tests
 
 ## Deployment
 
-**Backend on AWS**: push the `backend` image to Amazon ECR, then run it on App Runner, ECS/Fargate or
-EC2. Port 8000 (or `$PORT`), health check path `/api/health`. Set the environment variable
-`CORS_ORIGINS` to the Vercel URL, for example `https://<your-app>.vercel.app`.
+**Backend**: run the `backend` image on a container platform. Port 8000 (or `$PORT`), health check
+path `/api/health`. Set the environment variable `CORS_ORIGINS` to
+`https://oiuhgh.vercel.app`.
 
 **Frontend on Vercel**: import the repository, set the root directory to `frontend`, and set the
-environment variable `VITE_API_URL` to the AWS backend URL (it is baked in at build time, so
-redeploy after changing it).
+environment variable `VITE_API_URL` to `https://qatar-backend.atttrack.online` (it is baked in at
+build time, so redeploy after changing it).
