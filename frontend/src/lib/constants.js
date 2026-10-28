@@ -12,8 +12,11 @@ export const PRESETS = [
 ];
 
 export const COLORS = {
-  actual: "#0f766e",
-  forecast: "#d97706",
-  hourly: "#0369a1",
-  horizon: "#7c3aed",
+  actual: "var(--chart-actual)",
+  forecast: "var(--chart-forecast)",
+  hourly: "var(--chart-hourly)",
+  horizon: "var(--chart-horizon)",
+  grid: "var(--chart-grid)",
+  label: "var(--chart-label)",
+  hover: "var(--chart-hover)",
 };

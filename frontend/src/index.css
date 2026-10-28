@@ -2,3 +2,79 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --color-canvas: #f4f4f1;
+  --color-surface: #ffffff;
+  --color-ink: #111827;
+  --color-muted: #596273;
+  --color-border: #d7d9d5;
+  --color-border-strong: #aeb3ae;
+  --color-primary: #1f4e79;
+  --color-primary-soft: #e8f1f8;
+  --color-primary-ink: #ffffff;
+  --color-danger: #9c2f2f;
+  --color-danger-soft: #fcecec;
+  --color-warning: #795300;
+  --color-warning-soft: #fff8df;
+  --chart-actual: #0072b2;
+  --chart-forecast: #b54708;
+  --chart-hourly: #007f5f;
+  --chart-horizon: #7a4e9e;
+  --chart-grid: #d7d9d5;
+  --chart-label: #596273;
+  --chart-hover: #eef0ed;
+  --shadow-panel: 0 1px 2px rgb(17 24 39 / 0.06);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --color-canvas: #171918;
+    --color-surface: #222523;
+    --color-ink: #f3f4f1;
+    --color-muted: #b7bdb7;
+    --color-border: #3c433e;
+    --color-border-strong: #667068;
+    --color-primary: #1f4e79;
+    --color-primary-soft: #1d3345;
+    --color-primary-ink: #ffffff;
+    --color-danger: #ff9a9a;
+    --color-danger-soft: #482424;
+    --color-warning: #f4ca64;
+    --color-warning-soft: #423819;
+    --chart-grid: #3c433e;
+    --chart-label: #b7bdb7;
+    --chart-hover: #303632;
+    --shadow-panel: 0 1px 2px rgb(0 0 0 / 0.25);
+  }
+}
+
+@layer base {
+  html {
+    background: var(--color-canvas);
+  }
+
+  body {
+    @apply bg-canvas text-ink antialiased;
+    margin: 0;
+    font-feature-settings: "tnum", "cv11";
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      scroll-behavior: auto !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}

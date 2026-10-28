@@ -9,11 +9,11 @@ export default function HorizonChart({ data }) {
   return (
     <ResponsiveContainer width="100%" height={280}>
       <BarChart data={rows} margin={{ top: 8, right: 8, bottom: 16, left: 0 }}>
-        <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" vertical={false} />
-        <XAxis dataKey="label" tick={{ fontSize: 12, fill: "#64748b" }}
-          label={{ value: "Forecast lead time", position: "insideBottom", offset: -10, fill: "#64748b" }} />
-        <YAxis tick={{ fontSize: 12, fill: "#64748b" }} width={52} tickFormatter={(v) => fmtNum(v)} />
-        <Tooltip cursor={{ fill: "#f1f5f9" }}
+        <CartesianGrid strokeDasharray="3 3" stroke={COLORS.grid} vertical={false} />
+        <XAxis dataKey="label" tick={{ fontSize: 12, fill: COLORS.label }}
+          label={{ value: "Forecast lead time", position: "insideBottom", offset: -10, fill: COLORS.label }} />
+        <YAxis tick={{ fontSize: 12, fill: COLORS.label }} width={52} tickFormatter={(v) => fmtNum(v)} />
+        <Tooltip cursor={{ fill: COLORS.hover }}
           formatter={(v, _n, item) => [`${fmtNum(v)} MW (${fmtNum(item.payload.n)} points)`, "Mean abs. error"]} />
         <Bar dataKey="mae" fill={COLORS.horizon} radius={[4, 4, 0, 0]} />
       </BarChart>
